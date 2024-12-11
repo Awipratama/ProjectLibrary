@@ -1,9 +1,14 @@
 body {
-    background-color: #f7d357; /* Matching yellow background */
+    background-image: url('../Image/Pic3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .register-container {
     max-width: 900px;
-    margin: 50px auto;
+    margin-block: 150px;
+    margin-inline: 20%;
     background: #fff;
     border-radius: 10px;
     display: flex;
@@ -11,7 +16,9 @@ body {
 }
 .left-section {
     flex: 1;
-    background: url('https://via.placeholder.com/450') no-repeat center center/cover; /* Replace with actual image */
+    background-image: url('../Image/Pic2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     border-radius: 10px 0 0 10px;
 }
 .right-section {
@@ -34,9 +41,10 @@ body {
 .btn-primary:hover {
     background-color: #3a555d;
 }
-.social-buttons img {
-    width: 30px;
-    height: 30px;
+.social-buttons {
+    font-size: 30px;
+    color: gray;
+    text-decoration: none;
 }
 .toggle {
     color: #999;

@@ -17,10 +17,9 @@
     <div class="register-container">
         <div class="left-section"></div>
         <div class="right-section">
-            <h1>Hello, Guys!</h1>
-            <div class="d-flex justify-content-between mb-4">
-                <a href="#" class="text-decoration-none fw-bold text-primary">Login</a>
-                <a href="#" class="text-decoration-none text-secondary">Sign Up</a>
+            <h1>REGISTER HERE</h1>
+            <div class="d-flex justify-content-between mb-3">
+                <p>Wellcome Buddy, let's setting up your Account.</p>
             </div>
             <form>
                 <div class="mb-3">
@@ -29,19 +28,19 @@
                 <div class="mb-3">
                     <input type="email" class="form-control" placeholder="Enter your email">
                 </div>
-                <div class="mb-3 position-relative">
+                <div class="mb-4 position-relative">
                     <input type="password" class="form-control" placeholder="Enter Password">
                     <span class="position-absolute end-0 top-50 translate-middle-y me-3 toggle">👁️</span>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Register</button>
             </form>
-            <div class="text-center my-3">Or</div>
+            <div class="text-center my-2">Or</div>
             <div class="d-flex justify-content-center social-buttons">
-                <a href="#" class="me-3">
-                    <i class="bi bi-google"></i>
+                <a href="" class="me-3">
+                    <i class="bi bi-google text-secondary"></i>
                 </a>
-                <a href="#">
-                    <i class="bi bi-facebook"></i>
+                <a href="">
+                    <i class="bi bi-facebook text-secondary"></i>
                 </a>
             </div>
         </div>
