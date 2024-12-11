@@ -1,0 +1,44 @@
+body {
+    background-color: #f7d357; /* Matching yellow background */
+}
+.register-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.left-section {
+    flex: 1;
+    background: url('https://via.placeholder.com/450') no-repeat center center/cover; /* Replace with actual image */
+    border-radius: 10px 0 0 10px;
+}
+.right-section {
+    flex: 1;
+    padding: 30px;
+}
+.right-section h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #496c76; /* Matching text color */
+}
+.form-control {
+    border-radius: 20px;
+}
+.btn-primary {
+    border-radius: 20px;
+    background-color: #496c76;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #3a555d;
+}
+.social-buttons img {
+    width: 30px;
+    height: 30px;
+}
+.toggle {
+    color: #999;
+    cursor: pointer;
+}
