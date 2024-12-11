@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +15,7 @@
     <nav class="navbar position-absolute z-1">
         <div class="container-fluid justify-content-end">
             <a href="" class="profile-anchor mx-2">Sign in</a>
-            <a href="" class="profile-anchor mx-2">Register</a>
+            <a href="/Register" class="profile-anchor mx-2">Register</a>
             <a class="navbar-brand mx-3" href="#">
                 <img src="{{ asset('Image/profile.png') }}" alt="" width="45" height="41"
                     class="rounded-circle">

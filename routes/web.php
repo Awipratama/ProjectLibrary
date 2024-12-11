@@ -8,3 +8,6 @@ Route::get('/', function () {
 Route::get('/Dashboard', function () {
     return view('dashboard');
 });
+Route::get('/Register', function () {
+    return view('register');
+});
