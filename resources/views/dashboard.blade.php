@@ -27,12 +27,15 @@
     <div class="col-auto col-md-3 col-xl-3 px-sm-2 px-0 bg-dark z-2 position-absolute" id="sideBar">
         <div class="d-flex flex-column align-items-center px-3 pt-3 text-white min-vh-100 gap-3">
             <h2 class="d-flex align-items-center fs-3 d-none d-sm-inline">PERPUSTAKAAN</h2>
-            <div class="d-flex flex-column gap-4">
+            <div class="d-flex flex-column gap-4 anchor-navigate">
                 <img src="{{ asset('Image/Logo Skensa.png') }}" class="logoSkensa mb-4">
                 <a href="/Dashboard" class="first fs-4 px-1">Dashboard</a>
                 <a href="/Dashboard" class="second fs-4 px-1">About Us</a>
                 <a href="/Dashboard" class="third fs-4 px-1">Borrowing</a>
                 <a href="/Dashboard" class="fourth fs-4 px-1">Return</a>
+            </div>
+            <div class="footer">
+                <p>Copyright by Awipratama</p>
             </div>
         </div>
     </div>
