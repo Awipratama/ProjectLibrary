@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/Dashboard', function () {
-    return view('dashboard');
+Route::get('/user', function () {
+    return view('userDashBoard');
 });
-Route::get('/Register', function () {
+Route::get('/register', function () {
     return view('register');
 });
