@@ -21,7 +21,8 @@
             <div class="d-flex justify-content-between mb-3">
                 <p>Wellcome Buddy, let's setting up your Account.</p>
             </div>
-            <form>
+            <form action="{{ route('') }}" method="POST">
+                @csrf
                 <div class="mb-3">
                     <input type="text" class="form-control" placeholder="Enter your full name">
                 </div>

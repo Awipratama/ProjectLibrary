@@ -1,101 +1,53 @@
-@extends('layouts.app', ['class' => 'register-page', 'page' => __('Register Page'), 'contentClass' => 'register-page'])
+<!DOCTYPE html>
+<html lang="id">
 
-@section('content')
-    <div class="row">
-        <div class="col-md-5 ml-auto">
-            <div class="info-area info-horizontal mt-5">
-                <div class="icon icon-warning">
-                    <i class="tim-icons icon-wifi"></i>
-                </div>
-                <div class="description">
-                    <h3 class="info-title">{{ __('Marketing') }}</h3>
-                    <p class="description">
-                        {{ __('We\'ve created the marketing campaign of the website. It was a very interesting collaboration.') }}
-                    </p>
-                </div>
-            </div>
-            <div class="info-area info-horizontal">
-                <div class="icon icon-primary">
-                    <i class="tim-icons icon-triangle-right-17"></i>
-                </div>
-                <div class="description">
-                    <h3 class="info-title">{{ __('Fully Coded in HTML5') }}</h3>
-                    <p class="description">
-                        {{ __('We\'ve developed the website with HTML5 and CSS3. The client has access to the code using GitHub.') }}
-                    </p>
-                </div>
-            </div>
-            <div class="info-area info-horizontal">
-                <div class="icon icon-info">
-                    <i class="tim-icons icon-trophy"></i>
-                </div>
-                <div class="description">
-                    <h3 class="info-title">{{ __('Built Audience') }}</h3>
-                    <p class="description">
-                        {{ __('There is also a Fully Customizable CMS Admin Dashboard for this product.') }}
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-7 mr-auto">
-            <div class="card card-register card-white">
-                <div class="card-header">
-                    <img class="card-img" src="{{ asset('black') }}/img/card-primary.png" alt="Card image">
-                    <h4 class="card-title">{{ __('Register') }}</h4>
-                </div>
-                <form class="form" method="post" action="{{ route('register') }}">
-                    @csrf
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-                    <div class="card-body">
-                        <div class="input-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="tim-icons icon-single-02"></i>
-                                </div>
-                            </div>
-                            <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}">
-                            @include('alerts.feedback', ['field' => 'name'])
-                        </div>
-                        <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="tim-icons icon-email-85"></i>
-                                </div>
-                            </div>
-                            <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}">
-                            @include('alerts.feedback', ['field' => 'email'])
-                        </div>
-                        <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="tim-icons icon-lock-circle"></i>
-                                </div>
-                            </div>
-                            <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Password') }}">
-                            @include('alerts.feedback', ['field' => 'password'])
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="tim-icons icon-lock-circle"></i>
-                                </div>
-                            </div>
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Confirm Password') }}">
-                        </div>
-                        <div class="form-check text-left">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox">
-                                <span class="form-check-sign"></span>
-                                {{ __('I agree to the') }}
-                                <a href="#">{{ __('terms and conditions') }}</a>.
-                            </label>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-round btn-lg">{{ __('Get Started') }}</button>
-                    </div>
-                </form>
+    <title>Register Page</title>
+
+    <link href="{{ asset('bootstrap-5.0.2-dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="register-container">
+        <div class="left-section"></div>
+        <div class="right-section">
+            <h1>REGISTER HERE</h1>
+            <div class="d-flex justify-content-between mb-3">
+                <p>Wellcome Buddy, let's setting up your Account.</p>
+            </div>
+            <form action="{{ route('register') }}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Enter your full name">
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Enter your email">
+                </div>
+                <div class="mb-4 position-relative">
+                    <input type="password" class="form-control" placeholder="Enter Password">
+                    <span class="position-absolute end-0 top-50 translate-middle-y me-3 toggle">👁️</span>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Register</button>
+            </form>
+            <div class="text-center my-2">Or</div>
+            <div class="d-flex justify-content-center social-buttons">
+                <a href="" class="me-3">
+                    <i class="bi bi-google text-secondary"></i>
+                </a>
+                <a href="">
+                    <i class="bi bi-facebook text-secondary"></i>
+                </a>
             </div>
         </div>
     </div>
-@endsection
+
+    <script src="{{ asset('bootstrap-5.0.2-dist/js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>

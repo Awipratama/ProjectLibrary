@@ -368,7 +368,7 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         <input type="hidden" name="_token" value="ub2DzAIrgUnghVvu3l3KAbbq0UztNO8yfkrDNm6n">
     </form>
-    <div class="fixed-plugin">
+    {{-- <div class="fixed-plugin">
         <div class="dropdown show-dropdown">
             <a href="#" data-toggle="dropdown">
                 <i class="fa fa-cog fa-2x"> </i>
@@ -411,7 +411,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> --}}
     <script src="{{ asset('black') }}/js/core/jquery.min.js"></script>
     <script src="{{ asset('black') }}/js/core/popper.min.js"></script>
     <script src="{{ asset('black') }}/js/core/bootstrap.min.js"></script>
