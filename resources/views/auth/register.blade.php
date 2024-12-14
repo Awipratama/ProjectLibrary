@@ -24,17 +24,32 @@
             <form action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Enter your full name">
+                    <input id="name" type="text" name="name" class="form-control"
+                        placeholder="Enter your full name" required>
                 </div>
                 <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Enter your email">
+                    <input id="email" type="email" name="email" class="form-control"
+                        placeholder="Enter your email" required>
                 </div>
-                <div class="mb-4 position-relative">
-                    <input type="password" class="form-control" placeholder="Enter Password">
-                    <span class="position-absolute end-0 top-50 translate-middle-y me-3 toggle">👁️</span>
+                <div class="mb-3 position-relative">
+                    <input id="password" type="password" name="password" class="form-control"
+                        placeholder="Enter Password" required>
+                </div>
+                <div class="mb-4 d-flex flex-column">
+                    <input id="password_confirmation" type="password" name="password_confirmation" class="form-control"
+                        placeholder="Confirm Password" required>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Register</button>
             </form>
+            @if ($errors->any())
+                <div>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="text-center my-2">Or</div>
             <div class="d-flex justify-content-center social-buttons">
                 <a href="" class="me-3">
