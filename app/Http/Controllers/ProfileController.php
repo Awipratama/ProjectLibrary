@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -13,9 +14,9 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit()
+    public function edit(User $user)
     {
-        return view('profile.edit');
+        return view('profile.edit', compact('user'));
     }
 
     /**
@@ -24,9 +25,14 @@ class ProfileController extends Controller
      * @param  \App\Http\Requests\ProfileRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ProfileRequest $request)
+    public function update(ProfileRequest $request, User $user)
     {
-        auth()->user()->update($request->all());
+        // Memastikan hanya admin yang bisa mengupdate user lain, jika perlu
+        // if(auth()->user()->isAdmin()) {
+        //     $user->update($request->all());
+        // }
+
+        $user->update($request->all());
 
         return back()->withStatus(__('Profile successfully updated.'));
     }

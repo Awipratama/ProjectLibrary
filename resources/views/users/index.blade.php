@@ -298,13 +298,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($users as $user)
+                                            @foreach ($users as $User)
                                                 <tr>
-                                                    <td>{{ $user->name }}</td>
+                                                    <td>{{ $User->name }}</td>
                                                     <td>
-                                                        <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
+                                                        <a href="mailto:{{ $User->email }}">{{ $User->email }}</a>
                                                     </td>
-                                                    <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
+                                                    <td>{{ $User->created_at->format('d/m/Y H:i') }}</td>
                                                     <td class="text-right">
                                                         <div class="dropdown">
                                                             <a class="btn btn-sm btn-icon-only text-light"
@@ -314,7 +314,7 @@
                                                             </a>
                                                             <div
                                                                 class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                                <a class="dropdown-item" href="{{ route('Users.edit', $user->id) }}">Edit</a>
+                                                                <a class="dropdown-item" href="{{ route('profile.edit') }}">Edit</a>
                                                                 <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
                                                         </div>
