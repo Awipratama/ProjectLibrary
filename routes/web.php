@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth\CustomRegisterController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,3 +34,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
+Route::get('users/{id}', [UserController::class, 'edit'])->name('Users.edit');
+Route::put('users/{id}', [UserController::class, 'update'])->name('Users.update');
