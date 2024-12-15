@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <h5 class="title">{{ __('Edit Profile') }}</h5>
                 </div>
-                <form method="POST" action="{{ route('profile.update', ['user' => $user->id]) }}" autocomplete="off">
+                <form method="POST" action="{{ route('profile.update', ['userId' => $user->id]) }}" autocomplete="off">
                     <div class="card-body">
                         @csrf
                         @method('put')

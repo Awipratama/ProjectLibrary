@@ -17,7 +17,6 @@ class ProfileController extends Controller
     public function edit(?int $id = null)
     {
         $user = User::where("id", $id)->first();
-        // return view('users.edit');
         return view('profile.edit', ['user' => $user]);
     }
 
@@ -27,16 +26,24 @@ class ProfileController extends Controller
      * @param  \App\Http\Requests\ProfileRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ProfileRequest $request)
+    public function update(ProfileRequest $request, int $userId)
     {
-        // Memastikan hanya admin yang bisa mengupdate user lain, jika perlu
-        // if(auth()->user()->isAdmin()) {
-        //     $user->update($request->all());
+        // Memastikan hanya admin yang bisa mengupdate user lain, atau user hanya bisa mengupdate profilnya sendiri
+        // if (auth()->id() !== $user->id && !auth()->user()->isAdmin()) {
+        //     abort(403, 'Unauthorized action.');
         // }
 
-        new User();
+        try {
+            $field = $request->validated();
+            $user = User::find($userId);
+            $user->name = $field['name'];
+            $user->email = $field['email'];
 
-        return back()->withStatus(__('Profile successfully updated.'));
+            $user->save();
+            return back()->withStatus(__('Profile successfully updated.'));
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => __('An error occurred while updating the profile.')]);
+        }
     }
 
     /**

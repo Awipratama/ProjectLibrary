@@ -100,12 +100,6 @@
 
                         <div class="collapse show" id="laravel-examples">
                             <ul class="nav pl-4">
-                                <li>
-                                    <a href="{{ route('profile.edit') }}">
-                                        <i class="tim-icons icon-single-02"></i>
-                                        <p>User Profile</p>
-                                    </a>
-                                </li>
                                 <li class="active">
                                     <a href="{{ route('user.index') }}">
                                         <i class="tim-icons icon-bullet-list-67"></i>
