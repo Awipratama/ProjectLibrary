@@ -13,10 +13,8 @@ Route::get('/userdashboard', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 
-Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
@@ -28,11 +26,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'App\Http\Controllers\PageController@upgrade']);
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::middleware('admin')->group(function () {
     Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    // Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
+
     Route::get('profile/{userId?}', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('profile/{userId}', [ProfileController::class, 'update'])->name('profile.update');
-    // Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
-    // Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
+    Route::delete('users/{userId}', [ProfileController::class, 'destroy'])->name('users.delete');
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });

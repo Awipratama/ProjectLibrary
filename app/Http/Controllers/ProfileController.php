@@ -58,4 +58,12 @@ class ProfileController extends Controller
 
         return back()->withPasswordStatus(__('Password successfully updated.'));
     }
+
+    public function destroy(int $userId)
+    {
+        $users = User::find($userId);
+        $users->delete();
+
+        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
+    }
 }

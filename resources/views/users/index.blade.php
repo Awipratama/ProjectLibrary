@@ -47,6 +47,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('') }}">
     <!-- Icons -->
     <link href="{{ asset('black') }}/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS -->
@@ -299,7 +300,21 @@
                                                         <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                                                     </td>
                                                     <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
-                                                    <td class="text-right">
+                                                    <td class="text-right d-flex flex-row">
+                                                        <form
+                                                            action="{{ route('users.delete', ['userId' => $user->id]) }}"
+                                                            method="DELETE">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger btn-sm mx-2"
+                                                                onclick="return confirm('Are You Sure Ni**a?')"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                    height="16" fill="currentColor"
+                                                                    class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                                                                </svg></button>
+                                                        </form>
                                                         <div class="dropdown">
                                                             <a class="btn btn-sm btn-icon-only text-light"
                                                                 href="#" role="button" data-toggle="dropdown"
@@ -310,7 +325,6 @@
                                                                 class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                                 <a class="dropdown-item"
                                                                     href="/profile/{{ $user->id }}">Edit</a>
-                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
                                                         </div>
                                                     </td>
