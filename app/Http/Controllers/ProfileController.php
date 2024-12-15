@@ -14,9 +14,11 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit(User $user)
+    public function edit(?int $id = null)
     {
-        return view('profile.edit', compact('user'));
+        $user = User::where("id", $id)->first();
+        // return view('users.edit');
+        return view('profile.edit', ['user' => $user]);
     }
 
     /**
@@ -25,14 +27,14 @@ class ProfileController extends Controller
      * @param  \App\Http\Requests\ProfileRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ProfileRequest $request, User $user)
+    public function update(ProfileRequest $request)
     {
         // Memastikan hanya admin yang bisa mengupdate user lain, jika perlu
         // if(auth()->user()->isAdmin()) {
         //     $user->update($request->all());
         // }
 
-        $user->update($request->all());
+        new User();
 
         return back()->withStatus(__('Profile successfully updated.'));
     }

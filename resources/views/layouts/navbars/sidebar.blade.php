@@ -22,13 +22,6 @@
                 <div class="collapse show" id="laravel-examples">
                     <ul class="nav pl-4">
                         <li>
-                            {{-- <li @if ($pageSlug == 'profile') class="active " @endif> --}}
-                            <a href="{{ route('profile.edit') }}">
-                                <i class="tim-icons icon-single-02"></i>
-                                <p>{{ __('User Profile') }}</p>
-                            </a>
-                        </li>
-                        <li>
                             {{-- <li @if ($pageSlug == 'users') class="active " @endif> --}}
                             <a href="{{ route('user.index') }}">
                                 <i class="tim-icons icon-bullet-list-67"></i>
