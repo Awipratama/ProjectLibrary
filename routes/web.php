@@ -12,7 +12,6 @@ Route::get('/userdashboard', function () {
     return view('userDashBoard');
 });
 
-// Route::get('/login', [App\Http\Controllers\PageController::class, 'login'])->name('login');
 Auth::routes();
 
 Auth::routes();
