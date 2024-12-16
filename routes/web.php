@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +12,7 @@ Route::get('/userdashboard', function () {
     return view('userDashBoard');
 });
 
+Route::get('/login', [App\Http\Controllers\PageController::class, 'login'])->name('login');
 Auth::routes();
 
 Auth::routes();
@@ -29,8 +31,6 @@ Route::group(['middleware' => 'auth'], function () {
 Route::middleware('admin')->group(function () {
     Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    // Route::get('/dashboard', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
-
     Route::get('profile/{userId?}', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('profile/{userId}', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('users/{userId}', [ProfileController::class, 'destroy'])->name('users.delete');

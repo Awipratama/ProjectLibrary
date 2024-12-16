@@ -73,4 +73,9 @@ class PageController extends Controller
     {
         return view('pages.upgrade');
     }
+
+    public function login()
+    {
+        return view('auth.login');
+    }
 }

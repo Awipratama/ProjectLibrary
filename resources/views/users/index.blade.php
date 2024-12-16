@@ -92,23 +92,17 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
-                        <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
-                            <i class="fab fa-laravel"></i>
-                            <span class="nav-link-text">{{ __('Laravel Examples') }}</span>
-                            <b class="caret mt-1"></b>
+                    <li class="active">
+                        <a href="{{ route('user.index') }}">
+                            <i class="tim-icons icon-bullet-list-67"></i>
+                            <p>User Management</p>
                         </a>
-
-                        <div class="collapse show" id="laravel-examples">
-                            <ul class="nav pl-4">
-                                <li class="active">
-                                    <a href="{{ route('user.index') }}">
-                                        <i class="tim-icons icon-bullet-list-67"></i>
-                                        <p>User Management</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    </li>
+                    <li class="active">
+                        <a href="{{ route('login') }}">
+                            <i class="tim-icons icon-bullet-list-67"></i>
+                            <p>Login</p>
+                        </a>
                     </li>
                     <li>
                         <a href="{{ route('pages.icons') }}">
