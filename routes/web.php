@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('tables', ['as' => 'pages.tables', 'uses' => 'App\Http\Controllers\PageController@tables']);
     Route::get('typography', ['as' => 'pages.typography', 'uses' => 'App\Http\Controllers\PageController@typography']);
     Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'App\Http\Controllers\PageController@upgrade']);
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::middleware('admin')->group(function () {

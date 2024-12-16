@@ -98,12 +98,6 @@
                             <p>User Management</p>
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="{{ route('login') }}">
-                            <i class="tim-icons icon-bullet-list-67"></i>
-                            <p>Login</p>
-                        </a>
-                    </li>
                     <li>
                         <a href="{{ route('pages.icons') }}">
                             <i class="tim-icons icon-atom"></i>

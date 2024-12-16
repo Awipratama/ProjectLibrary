@@ -19,12 +19,6 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('login') }}">
-                    <i class="tim-icons icon-bullet-list-67"></i>
-                    <p>{{ __('Login Page') }}</p>
-                </a>
-            </li>
-            <li>
                 {{-- <li @if ($pageSlug == 'icons') class="active " @endif> --}}
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>

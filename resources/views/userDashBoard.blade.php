@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +9,17 @@
 
     <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2-dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
     {{-- Navbar --}}
     <nav class="navbar position-absolute z-1">
         <div class="container-fluid justify-content-end">
-            <a href="{{ route('login') }}" class="profile-anchor mx-2">Log in</a>
-            <a href="{{ route('register') }}" class="profile-anchor mx-2">Register</a>
+            <a href="#"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                class="profile-anchor mx-2">Log Out</a>
             <a class="navbar-brand mx-3" href="#">
                 <img src="{{ asset('Image/profile.png') }}" alt="" width="45" height="41"
                     class="rounded-circle">
@@ -28,7 +32,7 @@
             <h2 class="d-flex align-items-center fs-3 d-none d-sm-inline">PERPUSTAKAAN</h2>
             <div class="d-flex flex-column gap-4 anchor-navigate">
                 <img src="{{ asset('Image/Logo Skensa.png') }}" class="logoSkensa mb-4">
-                <a href="/Dashboard" class="first fs-4 px-1">Dashboard</a>
+                <a href="/Dashboard" class="first fs-4 px-1">Home</a>
                 <a href="/Dashboard" class="second fs-4 px-1">About Us</a>
                 <a href="/Dashboard" class="third fs-4 px-1">Borrowing</a>
                 <a href="/Dashboard" class="fourth fs-4 px-1">Return</a>
@@ -42,6 +46,10 @@
     <div class="main-bg">
         <img src="{{ asset('Image/backgroundSkensa.jpg') }}" alt="" class="mainbg z-0">
     </div>
+    {{-- Form Logout --}}
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </body>
 
 </html>
