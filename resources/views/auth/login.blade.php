@@ -22,38 +22,45 @@
                         <div class="row g-0">
                             <div class="col-lg-6">
                                 <div class="card-body">
-
                                     <div class="card-body2 p-md-4 mx-md-4">
                                         <div class="text-center mb-3">
-                                            <img src="{{ asset('Image/Logo Skensa.png') }}"
-                                                style="width: 185px;" alt="logo">
+                                            <img src="{{ asset('Image/Logo Skensa.png') }}" style="width: 185px;"
+                                                alt="logo">
                                         </div>
-                                        <form>
+                                        <form action="{{ route('login') }}" method="POST">
+                                            @csrf
                                             <p class="fs-5">Please login to your account</p>
                                             <div data-mdb-input-init class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example11">Username</label>
-                                                <input type="email" id="form2Example11" class="form-control"
-                                                    placeholder="Phone number or email address" />
+                                                <label class="form-label" for="form2Example11">Email</label>
+                                                <input name="email" type="email" id="form2Example11" class="form-control"
+                                                    placeholder="Email address" />
                                             </div>
                                             <div data-mdb-input-init class="form-outline mb-4">
                                                 <label class="form-label" for="form2Example22">Password</label>
-                                                <input type="password" id="form2Example22" class="form-control" />
+                                                <input name="password" type="password" id="form2Example22" class="form-control" placeholder="Your Password" />
                                             </div>
                                             <div class="text-center pt-1 mb-2 pb-1 d-flex flex-column">
                                                 <button data-mdb-button-init data-mdb-ripple-init
                                                     class="btn btn-outline-danger btn-block fa-lg mb-3"
-                                                    type="button">Log
+                                                    type="submit">Log
                                                     in</button>
                                                 <a class="text-muted" href="#!">Forgot password?</a>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-center pb-4">
                                                 <p class="mb-0 me-2">Don't have an account?</p>
-                                                <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                                    class="btn btn-outline-danger">Create new</button>
+                                                <a href="{{ route('register') }}">Create New</a>
                                             </div>
                                         </form>
+                                        @if ($errors->any())
+                                            <div>
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                     </div>
-
                                 </div>
                             </div>
                             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
